@@ -1,0 +1,72 @@
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="account-info">
+            <img src="assets/default-avatar.png" alt="Profile" class="avatar">
+            <span id="sidebar-email"></span>
+        </div>
+        <button id="sidebar-compose" class="compose-btn">
+            <i class="fas fa-plus"></i>
+            <span>Compose</span>
+        </button>
+    </div>
+
+    <nav class="sidebar-nav">
+        <div class="nav-section">
+            <h3>Main</h3>
+            <ul>
+                <li>
+                    <a href="inbox.html" class="nav-link" data-page="inbox">
+                        <i class="fas fa-inbox"></i>
+                        <span>Inbox</span>
+                        <span class="badge" id="inbox-count">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="sent.html" class="nav-link" data-page="sent">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Sent</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="drafts.html" class="nav-link" data-page="drafts">
+                        <i class="fas fa-file"></i>
+                        <span>Drafts</span>
+                        <span class="badge" id="drafts-count">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="starred.html" class="nav-link" data-page="starred">
+                        <i class="fas fa-star"></i>
+                        <span>Starred</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-section">
+            <h3>Folders</h3>
+            <ul>
+                <li>
+                    <a href="spam.html" class="nav-link" data-page="spam">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Spam</span>
+                        <span class="badge" id="spam-count">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="trash.html" class="nav-link" data-page="trash">
+                        <i class="fas fa-trash"></i>
+                        <span>Trash</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button id="settings-link" class="settings-btn">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </button>
+    </div>
+</aside>

@@ -1,0 +1,6 @@
+headcraft.de
+Type: MX
+Host: @
+Value: your-smtp-server.com
+Priority: 10
+TTL: 3600
