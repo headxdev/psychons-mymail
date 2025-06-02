@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMail - Settings</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body data-page="settings">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <h1>Settings</h1>
+            </div>
+            <div class="nav-right">
+                <span id="user-email"></span>
+                <button id="back-btn" class="icon-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="settings-container">
+        <div class="settings-section">
+            <h2>Appearance</h2>
+            <div class="setting-item">
+                <span>Theme</span>
+                <div class="theme-toggle">
+                    <button data-theme="light" class="theme-btn">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+                    <button data-theme="dark" class="theme-btn">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
+                </div>
+            </div>
+            <div class="setting-item">
+                <span>Color Scheme</span>
+                <select id="color-scheme">
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="purple">Purple</option>
+                    <option value="orange">Orange</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Preferences</h2>
+            <div class="setting-item">
+                <span>Language</span>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <span>Email Display</span>
+                <select id="email-display">
+                    <option value="compact">Compact</option>
+                    <option value="comfortable">Comfortable</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <span>Notifications</span>
+                <label class="switch">
+                    <input type="checkbox" id="notifications">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Background Images</h2>
+            <div class="setting-item">
+                <span>Login Page Background</span>                <div class="background-selector" id="login-bg-selector">
+                    <div class="bg-preview current" data-bg="default.webp">
+                        <img src="/backgrounds/default/default.webp" alt="Default Login Background">
+                        <span class="bg-label">Default</span>
+                    </div><button class="btn-secondary upload-bg" data-target="login">
+                        <i class="fas fa-upload"></i> Upload Custom (WebP only)
+                    </button>
+                    <div class="format-info">
+                        <i class="fas fa-info-circle"></i> Only WebP images are supported for better performance
+                    </div>
+                </div>
+            </div>
+            
+            <div class="setting-item">
+                <span>App Background</span>
+                <div class="background-selector" id="app-bg-selector">
+                    <div class="bg-preview current" data-bg="default.jpg">
+                        <img src="/backgrounds/app/default.jpg" alt="Default App Background">
+                        <span class="bg-label">Default</span>
+                    </div>
+                    <div class="bg-preview" data-bg="minimal.jpg">
+                        <img src="/backgrounds/app/minimal.jpg" alt="Minimal Background">
+                        <span class="bg-label">Minimal</span>
+                    </div>
+                    <div class="bg-preview" data-bg="abstract.jpg">
+                        <img src="/backgrounds/app/abstract.jpg" alt="Abstract Background">
+                        <span class="bg-label">Abstract</span>
+                    </div>                    <button class="btn-secondary upload-bg" data-target="app">
+                        <i class="fas fa-upload"></i> Upload Custom (WebP only)
+                    </button>
+                    <div class="format-info">
+                        <i class="fas fa-info-circle"></i> Only WebP images are supported for better performance
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/settings.js"></script>
+</body>
+</html>

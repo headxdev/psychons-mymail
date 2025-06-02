@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMail - Starred</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body data-page="starred">
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>MyMail - Starred</h1>
+        </div>
+        <div class="nav-right">
+            <button id="settings-btn" class="icon-btn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+            <span id="user-email"></span>
+            <button id="logout-btn" class="icon-btn" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        <link rel="import" href="components/sidebar.html">
+        
+        <section class="email-list">
+            <div class="email-list-header">
+                <h2>Starred Emails</h2>
+                <div class="list-actions">
+                    <button id="refresh-btn" class="btn-secondary">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                    <div class="view-options">
+                        <button class="btn-icon" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="btn-icon" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="starred-container"></div>
+        </section>
+    </main>
+
+    <script src="js/common.js"></script>
+    <script src="js/starred.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('components/sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('link[rel="import"]')
+                        .insertAdjacentHTML('afterend', html);
+                    
+                    const currentPage = document.body.dataset.page;
+                    document.querySelector(`.nav-link[data-page="${currentPage}"]`)
+                        ?.classList.add('active');
+                });
+        });
+    </script>
+</body>
+</html>

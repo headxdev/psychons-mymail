@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMail - Trash</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body data-page="trash">
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>MyMail - Trash</h1>
+        </div>
+        <div class="nav-right">
+            <button id="settings-btn" class="icon-btn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+            <span id="user-email"></span>
+            <button id="logout-btn" class="icon-btn" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        <link rel="import" href="components/sidebar.html">
+        
+        <section class="email-list">
+            <div class="email-list-header">
+                <h2>Trash</h2>
+                <div class="list-actions">
+                    <button id="empty-trash" class="btn-danger">
+                        <i class="fas fa-trash"></i> Empty Trash
+                    </button>
+                    <button id="restore-all" class="btn-secondary">
+                        <i class="fas fa-undo"></i> Restore All
+                    </button>
+                </div>
+            </div>
+            <div id="trash-container"></div>
+        </section>
+    </main>
+
+    <!-- Restore Confirmation Modal -->
+    <div id="restore-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Restore Email</h2>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Where would you like to restore this email?</p>
+                <div class="restore-options">
+                    <button class="btn-secondary" data-folder="inbox">
+                        <i class="fas fa-inbox"></i> Inbox
+                    </button>
+                    <button class="btn-secondary" data-folder="starred">
+                        <i class="fas fa-star"></i> Starred
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/trash.js"></script>
+    <script>
+        // Load sidebar component
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('components/sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('link[rel="import"]')
+                        .insertAdjacentHTML('afterend', html);
+                    
+                    // Highlight active page
+                    const currentPage = document.body.dataset.page;
+                    document.querySelector(`.nav-link[data-page="${currentPage}"]`)
+                        ?.classList.add('active');
+                });
+        });
+    </script>
+</body>
+</html>
